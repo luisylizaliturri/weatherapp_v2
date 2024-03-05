@@ -1,0 +1,152 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #363636;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(./images/leaves.jpg);
+    background-size: cover;
+    font-size: 120%;
+}
+
+.search-button{
+   margin: 0.5em;
+   border-radius: 50%;
+   border: none;
+   height: 44px;
+   width: 44px;
+   outline: none;
+   background-color:rgba(75, 75 , 75, 0.3);
+   color: white;
+}
+
+.search-button:hover{
+    background-color:rgba(75, 75 , 75, 0.9);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.search-bar{
+border: none;
+outline: none;
+padding: 0.4em 1em;
+border-radius: 40px;
+background: rgba(75, 75 , 75, 0.3);
+color: white;
+font-family: inherit;
+font-size: 105%;
+width: calc(100% - 90px);
+}
+
+.card{
+    background: rgba(0, 0 , 0, 0.6);
+    padding: 2em;
+    border-radius: 40px;
+    width: 100%;
+    max-width: 420px;
+    margin: 1em;
+    color: white;
+}
+
+.search{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+h1.temp{
+    margin: 0;
+    margin-bottom: 0.4em;
+}
+
+.description{
+    text-transform: capitalize;
+    margin-left: 0px;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+}
+
+.flex-degree{
+    display: flex;
+    align-items: center;
+}
+
+.unit-button{
+    margin: 0.5em;
+   border-radius: 20%;
+   border: none;
+   height: 30px;
+   width: 30px;
+   outline: none;
+   background-color:rgba(45, 121, 214, 0.451);
+   color: white;
+    margin-right: 20px;
+}
+
+.F{
+    margin: 0.5em;
+    border-radius: 20%;
+    border: none;
+    height: 30px;
+    width: 30px;
+    outline: none;
+    background-color:rgba(52, 179, 35, 0.451);
+    color: white;
+     margin-right: 30px;
+
+}
+
+.F:hover{
+    margin: 0.5em;
+    border-radius: 20%;
+    border: none;
+    height: 30px;
+    width: 30px;
+    outline: none;
+    background-color:rgba(123, 227, 109, 0.451);
+    color: white;
+     margin-right: 30px;
+}
+
+.C{
+    margin: 0.5em;
+    border-radius: 20%;
+    border: none;
+    height: 30px;
+    width: 30px;
+    outline: none;
+    background-color:rgba(45, 121, 214, 0.451);
+    color: white;
+     margin-right: 30px;
+}
+
+.C:hover{
+    margin: 0.5em;
+    border-radius: 20%;
+    border: none;
+    height: 30px;
+    width: 30px;
+    outline: none;
+    background-color:rgba(128, 169, 220, 0.451);
+    color: white;
+     margin-right: 30px;
+}
+
+/* .weather.loading{
+visibility: hidden;
+max-height: 20px;
+position:relative;
+
+} */
+
+/* .weather.loading:after{
+    visibility: visible;
+    content: "Loading...";
+    color: white;
+    position: absolute;
+} */
