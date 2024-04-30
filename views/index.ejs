@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Weather App</title>
-        <link rel="stylesheet" href="./style.css">
-        <script src="script.js" defer></script>
-        
-    </head>
-    <body>
-        <div class="card">
-            <form action="/submit" method = "POST">
-                <div class="search">
-                    <input type="text" name = "city" class="search-bar" placeholder="Enter city">
-                    <button class = "search-button" type = "submit">
-                        <svg stroke="currentColor" fill="currentColor"
-                            stroke-width="0"
-                            viewBox="0 0 1024 1024" height="1.5em" width="1.5em"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <form action="/submit" method="POST" autocomplete="off">
+        <div class="search">
+            <div id="search-bar">
+                <input id="input" type="text" name="city" class="input" placeholder="Enter city"
+                    value="<%=locals.last_search? last_search : ''%>" onclick="this.value = ''">
+                <div id ='suggestions'></div>
+            </div>
+            <button class="search-button" type="submit">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1.5em"
+                    width="1.5em" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479
                                 712
                                 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5
                                 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1
@@ -31,25 +31,41 @@
                                 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412
                                 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3
                                 116.1-65.6 158.4z"></path>
-                        </svg>
-                    </button>
-                </div>
-            </form>  
-            <div class="weather loading">
-                <h2 class="city">Weather in <%= city_name %></h2>
+                </svg>
+            </button>
+        </div>
+        <input type="hidden" id="unitInput" name="unit" value="metric">
+        <div class="results-container">
+            <% if(locals.city_name){ %>
+                <h2 id="city">Weather in <br>
+                    <span class = "city-name"><%= city_name %></span>
+                </h2>
                 <div class="flex-degree">
-                    <h1 class="temperature"> <%= temperature %></h1>
-                    <button class="unit-button">
-                        F°
-                    </button>
+                    <h1 id="temperature">
+                        <%= temperature %>
+                    </h1>
+                    <button id="unit-button" type="submit">F°</button>
                 </div>
                 <div class="flex">
-                <img src="https://openweathermap.org/img/wn/<%= icon %>@2x.png" alt="" class="icon"/>
-                <div class="description"> <%= description %> </div>
-            </div>
-                <div class="humidity">Humidty: <%= humidity%>%</div>
-                <div class="wind">Wind speed: <%= wind_speed%> </div>
-            </div>
+                    <img src="https://openweathermap.org/img/wn/<%= icon %>@2x.png" alt="" class="icon" />
+                    <div id="description">
+                        <%= description %>
+                    </div>
+                </div>
+                <div id="feels-like">Feels like: <%= feels%> </div>
+                <div id="humidity">Humidty: <%= humidity%>%</div>
+                <div id="wind">Wind speed: <%= wind_speed%>
+                </div>
+                <%}else if(locals.error){%>
+                    <h2 id="city">Failed to make request: <br> Enter a valid city name...</h2>
+                    <button id="unit-button" type="submit">F°</button>
+                    <%}else{%>
+                        <h2 id="city">Enter a city name </h2>
+                        <button id="unit-button" type="submit">F°</button>
+                        <%}%>
         </div>
-    </body>
+    </form>
+    <script src="./script.js"></script>
+</body>
+
 </html>
