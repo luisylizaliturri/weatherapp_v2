@@ -2,7 +2,8 @@ import express from "express"
 import axios from "axios"
 
 const port = 3000
-const apiKey = "10053f2958b53ec8f94cef689093b473"
+const apiKey = process.env.API_KEY;
+
 const units = "metric"
 const app = express()
 
