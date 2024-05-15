@@ -1,8 +1,10 @@
 import express from "express"
 import axios from "axios"
+import dotenv from "dotenv"
+dotenv.config();
 
 const port = 3000
-const apiKey = process.env.API_KEY;
+const apiKey = process.env.API_KEY;;
 
 const units = "metric"
 const app = express()
